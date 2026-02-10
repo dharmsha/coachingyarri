@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { 
@@ -14,26 +14,85 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
-  const userMenuRef = useRef(null) // Click outside handle karne ke liye
+  
+  const userMenuRef = useRef(null)
+  const mobileMenuRef = useRef(null)
+  
   const pathname = usePathname()
 
-  // Scroll effect
+  // **FIXED: Scroll effect with stable dependency array**
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    
+    // Initial check
+    handleScroll()
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, []) // Empty array - stable
 
-  // Click outside user menu to close
+  // **FIXED: Click outside to close menus**
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // User menu ke bahar click
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setIsUserMenuOpen(false)
       }
+      // Mobile menu ke bahar click
+      if (mobileMenuRef.current && 
+          !mobileMenuRef.current.contains(event.target) && 
+          !event.target.closest('.mobile-menu-toggle')) {
+        setIsMobileMenuOpen(false)
+      }
     }
+    
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+  }, []) // Empty array - stable
+
+  // **FIXED: Mobile menu close on route change - NO state updates here**
+  useEffect(() => {
+    // Yeh effect sirf event listener setup karega
+    const closeMobileMenu = () => {
+      // Use requestAnimationFrame to avoid sync state updates
+      requestAnimationFrame(() => {
+        setIsMobileMenuOpen(false)
+        setIsUserMenuOpen(false)
+      })
+    }
+    
+    // Route change detect karne ke liye
+    const handleRouteChange = () => {
+      closeMobileMenu()
+    }
+    
+    // Multiple ways to detect route changes
+    window.addEventListener('popstate', handleRouteChange)
+    
+    // MutationObserver for Next.js app router changes
+    const observer = new MutationObserver(() => {
+      // Check if URL changed
+      if (window.location.pathname !== pathname) {
+        closeMobileMenu()
+      }
+    })
+    
+    // Observe body for changes
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true 
+    })
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange)
+      observer.disconnect()
+    }
+  }, [pathname]) // pathname dependency - stable
 
   const navItems = [
     { name: 'Home', href: '/', icon: <FaHome /> },
@@ -44,6 +103,31 @@ export default function Header() {
     { name: 'Live', href: '/live', icon: <FaPlayCircle /> },
     { name: 'Store', href: '/marketplace', icon: <FaShoppingBag /> },
   ]
+
+  // **FIXED: Navigation handler with useCallback**
+  const handleNavigation = useCallback((href, e) => {
+    // Agar same page pe hai to
+    if (pathname === href) {
+      e?.preventDefault()
+      // Home page pe top pe scroll karo
+      if (href === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+      return
+    }
+    
+    // Mobile menu band karo (async mein)
+    setTimeout(() => {
+      setIsMobileMenuOpen(false)
+      setIsUserMenuOpen(false)
+    }, 0)
+    
+    // Next.js ke Link kaam karega, humein force reload ki zarurat nahi
+  }, [pathname])
+
+  const isActiveLink = useCallback((href) => {
+    return pathname === href
+  }, [pathname])
 
   return (
     <>
@@ -57,7 +141,11 @@ export default function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           
           {/* Logo Section */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link 
+            href="/" 
+            className="flex items-center space-x-2 group"
+            onClick={(e) => handleNavigation('/', e)}
+          >
             <div className="w-10 h-10 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-blue-200 shadow-lg group-hover:scale-105 transition-transform">
               <FaGraduationCap className="text-white text-xl" />
             </div>
@@ -69,23 +157,24 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Nav - Clean & Minimal */}
+          {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center bg-gray-50 rounded-2xl p-1 border border-gray-100">
             {navItems.map((item) => {
-              const isActive = pathname === item.href
+              const active = isActiveLink(item.href)
               return (
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavigation(item.href, e)}
                   className={`
                     flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all
-                    ${isActive 
+                    ${active 
                       ? 'bg-white text-blue-600 shadow-sm ring-1 ring-black/5' 
                       : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                     }
                   `}
                 >
-                  <span className={isActive ? 'text-blue-600' : 'text-gray-400'}>{item.icon}</span>
+                  <span className={active ? 'text-blue-600' : 'text-gray-400'}>{item.icon}</span>
                   <span>{item.name}</span>
                 </Link>
               )
@@ -136,7 +225,12 @@ export default function Header() {
                     </div>
                     <div className="p-1">
                       {['Profile', 'Dashboard', 'My Courses', 'Settings'].map((item) => (
-                        <Link key={item} href="#" className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                        <Link 
+                          key={item} 
+                          href="#" 
+                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                          onClick={() => setIsUserMenuOpen(false)}
+                        >
                           {item}
                         </Link>
                       ))}
@@ -152,7 +246,7 @@ export default function Header() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+              className="lg:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg mobile-menu-toggle"
             >
               {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -171,6 +265,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <motion.div
+              ref={mobileMenuRef}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -179,17 +274,34 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col space-y-4 mt-10">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center space-x-4 p-4 rounded-2xl hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-all font-medium"
-                  >
-                    <span className="text-xl">{item.icon}</span>
-                    <span className="text-lg">{item.name}</span>
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const active = isActiveLink(item.href)
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => {
+                        handleNavigation(item.href, e)
+                        setIsMobileMenuOpen(false)
+                      }}
+                      className={`
+                        flex items-center space-x-4 p-4 rounded-2xl transition-all font-medium
+                        ${active 
+                          ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600' 
+                          : 'hover:bg-blue-50 text-gray-700 hover:text-blue-600'
+                        }
+                      `}
+                    >
+                      <span className={`text-xl ${active ? 'text-blue-600' : 'text-gray-500'}`}>
+                        {item.icon}
+                      </span>
+                      <span className="text-lg">{item.name}</span>
+                      {active && (
+                        <span className="ml-auto text-blue-600 text-sm font-bold">●</span>
+                      )}
+                    </Link>
+                  )
+                })}
               </div>
             </motion.div>
           </motion.div>
