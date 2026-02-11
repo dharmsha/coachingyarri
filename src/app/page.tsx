@@ -1,9 +1,11 @@
-import Hero from "@/src/components/Hero" // Path check kar lena agar tune 'components' folder mein rakha hai
+import Hero from "@/src/components/Hero" 
+import OurTeam from "@/src/components/OurTeam"
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <OurTeam />
     </main>
   );
 }

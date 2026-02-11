@@ -1,115 +1,165 @@
 'use client'
 
 import { useState } from 'react'
-import { FaMapMarkerAlt, FaBriefcase, FaDoorOpen, FaArrowRight, FaWallet, FaShieldAlt } from 'react-icons/fa'
+import { FaCircle, FaUserFriends, FaClock, FaVideo, FaChalkboardTeacher, FaArrowRight, FaCalendarAlt } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function JobsPage() {
-  const [activeTab, setActiveTab] = useState('All')
+export default function LivePage() {
+  const [filter, setFilter] = useState('All')
 
-  const jobs = [
-    { id: 1, role: 'Physics Faculty (JEE)', location: 'Patna, Bihar', salary: '₹10L - ₹18L PA', type: 'Full Time', category: 'Faculty', link: 'https://classdoor.com/apply' },
-    { id: 2, role: 'Biology Mentor (NEET)', location: 'Madhepura, Bihar', salary: '₹6L - ₹12L PA', type: 'Full Time', category: 'Faculty', link: 'https://classdoor.com/apply' },
-    { id: 3, role: 'Academic Counselor', location: 'Purnea, Bihar', salary: '₹3L - ₹5L PA', type: 'Full Time', category: 'Management', link: 'https://classdoor.com/apply' },
-    { id: 4, role: 'Center Head', location: 'Delhi, NCR', salary: '₹15L - ₹25L PA', type: 'Full Time', category: 'Management', link: 'https://classdoor.com/apply' },
-    { id: 5, role: 'Chemistry Specialist', location: 'Jaipur, RJ', salary: '₹8L - ₹14L PA', type: 'Full Time', category: 'Faculty', link: 'https://classdoor.com/apply' },
-    { id: 6, role: 'Branch Administrator', location: 'Gaya, Bihar', salary: '₹4L - ₹7L PA', type: 'Full Time', category: 'Management', link: 'https://classdoor.com/apply' }
+  const liveClasses = [
+    {
+      id: 1,
+      title: 'Rotational Motion: Part 02 (Advanced)',
+      teacher: 'Niraj Kumar',
+      subject: 'Physics',
+      status: 'LIVE',
+      viewers: '1.2k',
+      startTime: 'Ongoing',
+      link: 'https://www.classdoor.in/live/1'
+    },
+    {
+      id: 2,
+      title: 'Chemical Bonding & Geometry',
+      teacher: 'Dharm Kumar',
+      subject: 'Chemistry',
+      status: 'LIVE',
+      viewers: '850',
+      startTime: 'Ongoing',
+      link: 'https://www.classdoor.in/live/2'
+    },
+    {
+      id: 3,
+      title: 'Calculus: Integration by Parts',
+      teacher: 'Rahul Gupta',
+      subject: 'Mathematics',
+      status: 'UPCOMING',
+      viewers: '0',
+      startTime: '05:00 PM Today',
+      link: 'https://www.classdoor.in/live/3'
+    },
+    {
+      id: 4,
+      title: 'Human Reproduction: NCERT Decode',
+      teacher: 'Sunil Chhetri',
+      subject: 'Biology',
+      status: 'UPCOMING',
+      viewers: '0',
+      startTime: '07:30 PM Today',
+      link: 'https://www.classdoor.in/live/4'
+    }
   ]
 
-  const filteredJobs = activeTab === 'All' ? jobs : jobs.filter(j => j.category === activeTab)
-
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-20">
-      {/* --- ELITE TOP HEADER --- */}
-      <div className="bg-[#0F172A] pt-32 pb-24 px-4 text-center">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-4 uppercase">
-            Career <span className="text-blue-500">Portal</span>
+    <div className="min-h-screen bg-[#0F172A] text-white">
+      {/* --- LIVE HEADER --- */}
+      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-600/20 to-transparent"></div>
+        <div className="container mx-auto text-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-red-600 px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase mb-6 animate-pulse"
+          >
+            <FaCircle size={8} /> Live Classroom
+          </motion.div>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">
+            Dont Just Learn, <span className="text-blue-400">Interact.</span>
           </h1>
-          <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-slate-400 font-bold tracking-widest text-sm uppercase">Official CoachingYaari Openings</p>
-        </motion.div>
-      </div>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Attend live interactive sessions with Indias top mentors and get your doubts cleared instantly.
+          </p>
+        </div>
+      </section>
 
-      {/* --- FILTER INTERFACE --- */}
-      <div className="container mx-auto px-4 -mt-10">
-        <div className="bg-white p-2 rounded-2xl shadow-2xl inline-flex gap-2 border border-slate-100 mx-auto w-full max-w-md flex-wrap justify-center">
-          {['All', 'Faculty', 'Management'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-8 py-3 rounded-xl font-black text-sm transition-all
-                ${activeTab === tab ? 'bg-blue-600 text-white shadow-lg' : 'bg-transparent text-slate-500 hover:bg-slate-50'}`}
+      {/* --- LIVE NOW SECTION --- */}
+      <section className="container mx-auto px-4 py-10">
+        <div className="flex items-center gap-4 mb-10 border-l-4 border-red-600 pl-6">
+          <h2 className="text-3xl font-black uppercase tracking-tight">Active Now</h2>
+          <span className="bg-red-600/10 text-red-500 text-xs font-black px-3 py-1 rounded-lg">2 CLASSES</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {liveClasses.filter(c => c.status === 'LIVE').map((item) => (
+            <motion.div 
+              whileHover={{ y: -10 }}
+              key={item.id}
+              className="bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 relative group"
             >
-              {tab.toUpperCase()}
-            </button>
+              <div className="absolute top-6 right-8 flex items-center gap-2 text-red-500 font-black text-xs">
+                <FaUserFriends /> {item.viewers} WATCHING
+              </div>
+              
+              <div className="mb-6">
+                <span className="text-blue-400 font-black text-[10px] uppercase tracking-[0.2em]">{item.subject}</span>
+                <h3 className="text-2xl md:text-3xl font-black mt-2 leading-tight group-hover:text-blue-400 transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center">
+                  <FaChalkboardTeacher className="text-blue-400 text-xl" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Master Mentor</p>
+                  <p className="text-lg font-bold">{item.teacher}</p>
+                </div>
+              </div>
+
+              <a 
+                href={item.link} 
+                className="w-full bg-blue-600 hover:bg-white hover:text-blue-900 text-white py-5 rounded-2xl font-black text-center flex items-center justify-center gap-3 transition-all shadow-xl shadow-blue-900/20"
+              >
+                <FaVideo /> JOIN CLASS NOW <FaArrowRight />
+              </a>
+            </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* --- JOB GRID --- */}
-      <div className="container mx-auto px-4 mt-16 max-w-6xl">
-        <div className="grid gap-4">
-          <AnimatePresence mode='popLayout'>
-            {filteredJobs.map((job) => (
-              <motion.div
-                key={job.id}
-                layout
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 flex flex-col md:flex-row items-center gap-8 hover:border-blue-500 hover:shadow-2xl transition-all duration-300"
-              >
-                {/* Status Icon */}
-                <div className="hidden md:flex w-16 h-16 bg-slate-50 rounded-2xl items-center justify-center text-blue-600 shrink-0">
-                  <FaBriefcase size={28} />
-                </div>
-
-                {/* Job Info */}
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-2">
-                    <span className="text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-md uppercase tracking-wider border border-blue-100">
-                      {job.category}
-                    </span>
-                    <span className="text-[10px] font-black bg-emerald-50 text-emerald-600 px-3 py-1 rounded-md uppercase tracking-wider border border-emerald-100 flex items-center gap-1">
-                      <FaShieldAlt size={8}/> Verified
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">{job.role}</h3>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-6">
-                    <div className="flex items-center gap-2 text-slate-500 font-bold text-xs uppercase">
-                      <FaMapMarkerAlt className="text-blue-500" /> {job.location}
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-500 font-bold text-xs uppercase">
-                      <FaWallet className="text-blue-500" /> {job.salary}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Action Button */}
-                <div className="w-full md:w-auto">
-                  <a
-                    href={job.link}
-                    target="_blank"
-                    className="flex items-center justify-center gap-3 bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-sm group hover:bg-blue-600 transition-all shadow-xl shadow-slate-200"
-                  >
-                    <FaDoorOpen className="text-blue-400 group-hover:text-white" />
-                    APPLY VIA CLASS DOOR
-                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+        {/* --- UPCOMING SECTION --- */}
+        <div className="flex items-center gap-4 mb-10 border-l-4 border-blue-600 pl-6">
+          <h2 className="text-3xl font-black uppercase tracking-tight text-slate-300">Scheduled Sessions</h2>
         </div>
 
-        {/* --- BOTTOM SECTION --- */}
-        <div className="mt-24 text-center">
-          <div className="p-12 bg-white rounded-[3rem] border-2 border-dashed border-slate-200">
-             <h4 className="text-xl font-black text-slate-900 mb-2">Internal Hiring Only</h4>
-             <p className="text-slate-500 font-medium">All applications are strictly processed via Class Door portal for CoachingYaari branches.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {liveClasses.filter(c => c.status === 'UPCOMING').map((item) => (
+            <div key={item.id} className="bg-white/5 border border-white/5 p-6 rounded-[2rem] hover:bg-white/10 transition-all">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest">{item.subject}</span>
+                <div className="flex items-center gap-2 text-slate-400 text-[10px] font-black">
+                  <FaClock /> {item.startTime}
+                </div>
+              </div>
+              <h4 className="text-lg font-black mb-6 leading-tight text-slate-100">{item.title}</h4>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                   <div className="w-8 h-8 rounded-full bg-slate-700"></div>
+                   <p className="text-xs font-bold text-slate-400">{item.teacher}</p>
+                </div>
+                <button className="text-blue-400 font-black text-xs flex items-center gap-1 hover:text-white transition-colors">
+                  REMIND ME <FaCalendarAlt size={10} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- CLASS DOOR FOOTER --- */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-[3rem] p-12 text-center relative overflow-hidden">
+          <div className="relative z-10">
+            <h3 className="text-3xl font-black mb-4">Experience Zero-Lag Learning</h3>
+            <p className="text-blue-100 mb-8 max-w-xl mx-auto opacity-80">
+              All our live classes are powered by Class Doors ultra-low latency streaming technology.
+            </p>
+            <button className="bg-white text-blue-900 px-10 py-4 rounded-2xl font-black shadow-2xl hover:bg-slate-900 hover:text-white transition-all">
+              Go to Dashboard
+            </button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
