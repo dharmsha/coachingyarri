@@ -36,7 +36,7 @@ export default function LeadershipPage() {
             {/* Image Area */}
             <div className="lg:w-2/5 relative min-h-[400px] bg-slate-200">
                <img 
-                 src="./pritam.jpeg" // Yahan Pritam Bhai ki photo dal dena
+                 src="./pritama.jpg" // Yahan Pritam Bhai ki photo dal dena
                  alt="Pritam Kumar" 
                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                />
