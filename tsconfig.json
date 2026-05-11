@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/components/Layout/Header.jsx", "src/app/layout.jsx"  ],
+, "src/components/Layout/Header.tsx", "src/app/layout.jsx", "src/components/Gallery.jsx"  ],
   "exclude": ["node_modules"]
 }
