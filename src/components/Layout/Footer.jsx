@@ -68,9 +68,11 @@ export default function Footer() {
   ];
 
   const states = [
-    "UP", "MH", "BR", "WB", "MP", "TN", "RJ", "KA", "GJ", "AP",
-    "OD", "TS", "KL", "JH", "AS", "PB", "CG", "HR", "DL", "UK",
-  ];
+  "AP", "AR", "AS", "BR", "CG", "GA", "GJ", "HR", "HP", "JH",
+  "KA", "KL", "MP", "MH", "MN", "ML", "MZ", "NL", "OD", "PB",
+  "RJ", "SK", "TN", "TS", "TR", "UP", "UK", "WB",
+  "AN", "CH", "DN", "DL", "JK", "LA", "LD", "PY"
+];
 
   const features = [
     { icon: <Shield size={16} />, text: "Verified Centers" },
