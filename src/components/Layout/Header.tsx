@@ -20,9 +20,10 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('')
   const [isDarkMode, setIsDarkMode] = useState(false)
   
-  const userMenuRef = useRef(null)
-  const notificationsRef = useRef(null)
-  const mobileMenuRef = useRef(null)
+  // FIXED: Added HTMLDivElement type to avoid build errors
+  const userMenuRef = useRef<HTMLDivElement>(null)
+  const notificationsRef = useRef<HTMLDivElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   
   const pathname = usePathname()
@@ -62,14 +63,16 @@ export default function Header() {
   // Click outside handlers
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      
+      if (userMenuRef.current && !userMenuRef.current.contains(target)) {
         setIsUserMenuOpen(false)
       }
-      if (notificationsRef.current && !notificationsRef.current.contains(event.target as Node)) {
+      if (notificationsRef.current && !notificationsRef.current.contains(target)) {
         setIsNotificationsOpen(false)
       }
       if (mobileMenuRef.current && 
-          !mobileMenuRef.current.contains(event.target as Node) && 
+          !mobileMenuRef.current.contains(target) && 
           !(event.target as Element).closest('.mobile-menu-toggle')) {
         setIsMobileMenuOpen(false)
       }
@@ -152,7 +155,7 @@ export default function Header() {
       `}>
         <div className="container mx-auto px-4 lg:px-6 flex items-center justify-between">
           
-          {/* Logo Section - Image Added Here */}
+          {/* Logo Section */}
           <Link 
             href="/" 
             className="flex items-center space-x-3 group"
@@ -462,3 +465,4 @@ export default function Header() {
     </>
   )
 }
+// ```</HTMLDivElement>
