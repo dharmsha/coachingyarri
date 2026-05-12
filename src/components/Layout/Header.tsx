@@ -334,11 +334,11 @@ export default function Header() {
                     </div>
                     <div className="p-2">
                       {[
-                        { name: 'Profile', icon: <FaUser size={14} />, href: '/profile' },
-                        { name: 'Dashboard', icon: <FaTachometerAlt size={14} />, href: '/dashboard' },
-                        { name: 'My Courses', icon: <FaBookOpen size={14} />, href: '/my-courses' },
-                        { name: 'Saved Items', icon: <FaRegHeart size={14} />, href: '/saved' },
-                        { name: 'Settings', icon: <FaCog size={14} />, href: '/settings' },
+                        { name: 'Profile', icon: <FaUser size={14} />, href: '/#' },
+                        { name: 'Dashboard', icon: <FaTachometerAlt size={14} />, href: '/#' },
+                        { name: 'My Courses', icon: <FaBookOpen size={14} />, href: '/#' },
+                        { name: 'Saved Items', icon: <FaRegHeart size={14} />, href: '/#' },
+                        { name: 'Settings', icon: <FaCog size={14} />, href: '/#' },
                       ].map((item) => (
                         <Link
                           key={item.name}
