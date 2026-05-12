@@ -6,8 +6,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react"; // Install lucide-reac
 
 const images = [
   "/gallery1.jpeg", "/gallery2.jpeg", "/gallery3.jpeg",
-  "/gallery4.jpeg", "/gallery5.jpeg", "/gallery6.jpeg",
-  "/gallery8.jpeg", "/gallery9.jpeg",
+  // "/gallery4.jpeg", "/gallery5.jpeg", "/gallery6.jpeg",
+  // "/gallery8.jpeg", "/gallery9.jpeg",
 ];
 
 export default function GalleryPage() {
