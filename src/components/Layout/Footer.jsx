@@ -15,11 +15,9 @@ import {
   Youtube,
   GraduationCap,
   Users,
-  Building,
-  BookOpen,
   Shield,
   Clock,
-  MessageCircle, // WhatsApp icon ke liye
+  MessageCircle,
 } from "lucide-react";
 
 export default function Footer() {
@@ -86,7 +84,6 @@ export default function Footer() {
       
       {/* --- FLOATING BUTTONS START --- */}
       <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-        {/* WhatsApp Button */}
         <motion.a
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -101,7 +98,6 @@ export default function Footer() {
           <MessageCircle size={32} fill="currentColor" />
         </motion.a>
 
-        {/* Floating Call Button */}
         <motion.a
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -117,21 +113,24 @@ export default function Footer() {
       </div>
       {/* --- FLOATING BUTTONS END --- */}
 
-      {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Top Grid - Newsletter & Quick Links */}
         <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          {/* Left Column - Brand & Newsletter */}
+          {/* Left Column - Updated Logo Branding */}
           <div>
             <div className="mb-8">
               <Link href="/" className="inline-block group">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                    <GraduationCap className="text-white" size={24} />
+                <div className="flex items-center space-x-4 mb-4">
+                  {/* Logo Image instead of GraduationCap icon */}
+                  <div className="relative h-14 w-auto min-w-[60px] overflow-hidden rounded-xl border border-gray-700 group-hover:border-blue-500 transition-colors shadow-lg">
+                    <img 
+                      src="/c.jpeg" 
+                      alt="Logo" 
+                      className="h-full w-full object-contain bg-white" 
+                    />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white">Coaching Yaari</h2>
-                    <p className="text-gray-400 text-sm">Indias Education Network</p>
+                    <h2 className="text-2xl font-bold text-white tracking-tight">Coaching Yaari</h2>
+                    <p className="text-blue-400 text-xs font-medium uppercase tracking-widest">India's Education Network</p>
                   </div>
                 </div>
               </Link>
@@ -143,7 +142,7 @@ export default function Footer() {
 
             <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Mail size={20} />
+                <Mail size={20} className="text-blue-400" />
                 Stay Updated
               </h3>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -152,27 +151,24 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
-                  className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-500"
+                  className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                 />
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/20 whitespace-nowrap min-w-[120px]"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition-all"
                 >
                   Subscribe
                 </motion.button>
               </div>
-              <p className="text-xs text-gray-400 mt-3">
-                Get updates on new centers, courses, and opportunities
-              </p>
             </div>
           </div>
 
-          {/* Right Column - Quick Links */}
+          {/* Quick Links */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8">
             {Object.entries(quickLinks).map(([category, links]) => (
               <div key={category}>
-                <h3 className="text-sm font-bold mb-4 text-gray-300">
+                <h3 className="text-sm font-bold mb-4 text-gray-300 uppercase tracking-wider">
                   {category}
                 </h3>
                 <ul className="space-y-3">
@@ -180,9 +176,9 @@ export default function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2 group"
+                        className="text-gray-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2 group"
                       >
-                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 transition-colors"></div>
+                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 group-hover:scale-150 transition-all"></div>
                         {link.name}
                       </Link>
                     </li>
@@ -198,7 +194,7 @@ export default function Footer() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 bg-gray-800/30 p-4 rounded-xl"
+              className="flex items-center gap-3 bg-gray-800/30 p-4 rounded-xl border border-gray-800/50 hover:border-blue-500/30 transition-colors"
             >
               <div className="text-blue-400">{feature.icon}</div>
               <span className="text-sm font-medium">{feature.text}</span>
@@ -208,12 +204,12 @@ export default function Footer() {
 
         {/* States Section */}
         <div className="mb-10">
-          <h3 className="text-lg font-bold mb-4">Available States</h3>
+          <h3 className="text-sm font-bold mb-4 text-gray-400 uppercase">Available States</h3>
           <div className="flex flex-wrap gap-2">
             {states.map((state) => (
               <span
                 key={state}
-                className="px-3 py-1.5 bg-gray-800 rounded-lg text-sm hover:bg-gray-700 cursor-pointer transition-colors"
+                className="px-3 py-1.5 bg-gray-800/50 border border-gray-700/50 rounded-lg text-xs hover:bg-blue-600 hover:border-blue-500 cursor-pointer transition-all"
               >
                 {state}
               </span>
@@ -225,7 +221,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           <a 
             href={`tel:+91${phoneNumber}`}
-            className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-colors"
+            className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 border border-transparent hover:border-blue-500/30 transition-all"
           >
             <div className="p-3 bg-blue-900/30 rounded-lg">
               <Phone className="text-blue-400" size={20} />
@@ -238,7 +234,7 @@ export default function Footer() {
 
           <a 
             href="mailto:support@coachingyaari.com"
-            className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-colors"
+            className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 border border-transparent hover:border-green-500/30 transition-all"
           >
             <div className="p-3 bg-green-900/30 rounded-lg">
               <Mail className="text-green-400" size={20} />
@@ -249,7 +245,7 @@ export default function Footer() {
             </div>
           </a>
 
-          <div className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl sm:col-span-2 lg:col-span-1">
+          <div className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl border border-transparent sm:col-span-2 lg:col-span-1">
             <div className="p-3 bg-purple-900/30 rounded-lg">
               <MapPin className="text-purple-400" size={20} />
             </div>
@@ -268,7 +264,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Coaching Yaari. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
-              Building Indias education ecosystem
+              Building India's education ecosystem
             </p>
           </div>
 
@@ -279,8 +275,8 @@ export default function Footer() {
                 <motion.a
                   key={index}
                   href={social.href}
-                  whileHover={{ y: -2 }}
-                  className="p-2.5 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
+                  whileHover={{ y: -3, backgroundColor: '#2563eb', color: '#fff' }}
+                  className="p-2.5 bg-gray-800 rounded-lg text-gray-400 transition-all shadow-md"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -293,7 +289,7 @@ export default function Footer() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 rounded-lg hover:bg-gray-700 text-sm order-3"
+            className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 rounded-lg hover:bg-gray-700 text-sm order-3 border border-gray-700 transition-colors"
           >
             <span>Back to Top</span>
             <ArrowUp size={16} />
@@ -301,41 +297,25 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-black/50 py-4">
+      <div className="bg-black/50 py-4 border-t border-gray-900">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-gray-400 text-xs sm:text-sm">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-gray-400 text-xs sm:text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
               <span>100% Secure</span>
             </div>
-            <div className="hidden sm:flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
               <span>Verified Centers</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+              <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse"></div>
               <span>24/7 Support</span>
             </div>
-            <div className="hidden sm:flex items-center gap-2">
-              <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></div>
               <span>1Lakh+ Users</span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-black py-4">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-            Coaching Yaari is Indias fastest growing education platform. Present
-            in {states.length}+ states and 500+ districts.
-          </p>
-          <div className="flex justify-center gap-4 mt-3">
-            <span className="text-gray-600 text-xs">ISO 9001:2015 Certified</span>
-            <span className="text-gray-600 text-xs">•</span>
-            <span className="text-gray-600 text-xs">PCI DSS Compliant</span>
-            <span className="text-gray-600 text-xs">•</span>
-            <span className="text-gray-600 text-xs">GDPR Ready</span>
           </div>
         </div>
       </div>

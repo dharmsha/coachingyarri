@@ -20,7 +20,6 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('')
   const [isDarkMode, setIsDarkMode] = useState(false)
   
-  // FIXED: Added HTMLDivElement type to avoid build errors
   const userMenuRef = useRef<HTMLDivElement>(null)
   const notificationsRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
@@ -155,26 +154,23 @@ export default function Header() {
       `}>
         <div className="container mx-auto px-4 lg:px-6 flex items-center justify-between">
           
-          {/* Logo Section */}
+          {/* Logo Section - Only Logo, No Text */}
           <Link 
             href="/" 
-            className="flex items-center space-x-3 group"
+            className="flex items-center group"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300 border border-gray-100 dark:border-gray-800">
+              {/* Subtle Glow background */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
+              
+              {/* Logo Container - Full rectangular logo */}
+              <div className="relative h-14 w-auto min-w-[60px] max-w-[200px] rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
                 <img 
-                  src="/cr.jpeg" 
-                  alt="CoachingYaari Logo" 
-                  className="w-full h-full object-cover"
+                  src="/c.jpeg" 
+                  alt="Logo" 
+                  className="h-full w-full object-contain" 
                 />
               </div>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
-                Coaching<span className="text-blue-600 dark:text-blue-400">Yaari</span>
-              </h1>
-              <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold -mt-1">Learn. Connect. Grow.</p>
             </div>
           </Link>
 
@@ -225,8 +221,8 @@ export default function Header() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search courses, teachers..."
-                className="bg-gray-100 dark:bg-gray-800 border-none rounded-full py-2.5 pl-10 pr-12 w-56 focus:w-80 focus:ring-2 focus:ring-blue-500 transition-all duration-300 text-sm dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                placeholder="Search..."
+                className="bg-gray-100 dark:bg-gray-800 border-none rounded-full py-2.5 pl-10 pr-12 w-48 focus:w-72 focus:ring-2 focus:ring-blue-500 transition-all duration-300 text-sm dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
               <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 bg-white dark:bg-gray-700 px-1.5 py-0.5 rounded border border-gray-200 dark:border-gray-600 hidden group-focus-within:hidden">
                 ⌘K
@@ -290,11 +286,6 @@ export default function Header() {
                           </div>
                         </div>
                       ))}
-                    </div>
-                    <div className="px-4 py-2 bg-gray-50 dark:bg-gray-900/50 text-center">
-                      <Link href="/notifications" className="text-xs text-blue-600 dark:text-blue-400 hover:underline">
-                        View all notifications
-                      </Link>
                     </div>
                   </motion.div>
                 )}
@@ -373,7 +364,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -392,7 +383,6 @@ export default function Header() {
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white dark:bg-gray-900 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* User Profile Section */}
               <div className="p-6 border-b border-gray-100 dark:border-gray-800 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
@@ -405,7 +395,6 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Navigation Items */}
               <div className="flex flex-col p-4 space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto">
                 {navItems.map((item) => {
                   const active = isActiveLink(item.href)
@@ -413,9 +402,7 @@ export default function Header() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      onClick={() => {
-                        setIsMobileMenuOpen(false)
-                      }}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className={`
                         flex items-center space-x-4 p-4 rounded-xl transition-all font-medium
                         ${active 
@@ -428,33 +415,9 @@ export default function Header() {
                         {item.icon}
                       </span>
                       <span className="flex-1 text-base">{item.name}</span>
-                      {item.badge && (
-                        <span className="px-2 py-0.5 bg-red-500 text-white text-[9px] font-bold rounded-full animate-pulse">
-                          {item.badge}
-                        </span>
-                      )}
                     </Link>
                   )
                 })}
-                
-                <div className="h-px bg-gray-100 dark:bg-gray-800 my-4"></div>
-                
-                {['Profile', 'Dashboard', 'My Courses', 'Saved Items', 'Settings'].map((item) => (
-                  <Link
-                    key={item}
-                    href="#"
-                    className="flex items-center space-x-4 p-4 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="text-gray-400">•</span>
-                    <span>{item}</span>
-                  </Link>
-                ))}
-                
-                <button className="flex items-center space-x-4 p-4 rounded-xl text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors mt-2">
-                  <FaSignOutAlt />
-                  <span>Logout</span>
-                </button>
               </div>
             </motion.div>
           </motion.div>
@@ -465,4 +428,3 @@ export default function Header() {
     </>
   )
 }
-// ```</HTMLDivElement>

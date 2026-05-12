@@ -800,7 +800,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
-                "reviewCount": "12450",
+                "reviewCount": "12490",
                 "bestRating": "5",
                 "worstRating": "1"
               }
