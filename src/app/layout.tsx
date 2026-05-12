@@ -537,7 +537,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "name": "Coaching Yaari",
               "alternateName": "CoachingYaari.com",
               "url": "https://coachingyaari.com",
-              "logo": "https://coachingyaari.com/logo.png",
+              "logo": "https://coachingyaari.com/cr.jpeg",
               "image": "https://coachingyaari.com/og-main.jpg",
               "description": "India's largest coaching network helping students find verified coaching centers, read reviews, compare fees, and connect with expert teachers. Founded by Pritam Kumar.",
               "foundingDate": "2023",
