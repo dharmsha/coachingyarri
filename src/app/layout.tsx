@@ -369,13 +369,13 @@ export const metadata: Metadata = {
     siteName: "Coaching Yaari",
     images: [
       {
-        url: "https://coachingyaari.com/og-main.jpg",
+        url: "https://coachingyaari.com/c.jpeg",
         width: 1200,
         height: 630,
         alt: "Coaching Yaari - India's Largest Coaching Network | Founder Pritam Kumar",
       },
       {
-        url: "https://coachingyaari.com/og-founder.jpg",
+        url: "https://coachingyaari.com/c.jpeg",
         width: 1200,
         height: 630,
         alt: "Pritam Kumar - Founder & CEO Coaching Yaari",
@@ -398,7 +398,7 @@ export const metadata: Metadata = {
     title: "Coaching Yaari - Find Best Coaching Near You | Pritam Kumar",
     description: "India's #1 coaching network with 10,000+ reviews. Connect with verified coaching centers. Founded by Pritam Kumar.",
     images: {
-      url: "https://coachingyaari.com/twitter-card.jpg",
+      url: "https://coachingyaari.com/c.jpeg",
       alt: "Coaching Yaari - Founder Pritam Kumar",
     },
   },
@@ -444,7 +444,7 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     startupImage: [
       {
-        url: "/apple-splash-2048-2732.jpg",
+        url: "/c.jpeg",
         media: "(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)",
       },
     ],
@@ -488,17 +488,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${inter.variable}`}>
       <head>
-        {/* ===== FAVICONS ===== */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
+        {/* ===== FAVICONS & LOGO - ALL .JPEG ===== */}
+        <link rel="icon" type="image/jpeg" href="/c.jpeg" />
+        <link rel="shortcut icon" type="image/jpeg" href="/c.jpeg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/c.jpeg" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/c.jpeg" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/c.jpeg" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/c.jpeg" />
+        
+        {/* Theme Color */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
         
         {/* ===== PRELOAD CRITICAL RESOURCES ===== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -526,7 +526,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </main>
         <Footer />
 
-        {/* ===== STRUCTURED DATA - ORGANIZATION + FOUNDER INFO ===== */}
+        {/* ===== STRUCTURED DATA - ALL LOGOS .JPEG ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -537,8 +537,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "name": "Coaching Yaari",
               "alternateName": "CoachingYaari.com",
               "url": "https://coachingyaari.com",
-              "logo": "https://coachingyaari.com/cr.jpeg",
-              "image": "https://coachingyaari.com/og-main.jpg",
+              "logo": "https://coachingyaari.com/c.jpeg",
+              "image": "https://coachingyaari.com/c.jpeg",
               "description": "India's largest coaching network helping students find verified coaching centers, read reviews, compare fees, and connect with expert teachers. Founded by Pritam Kumar.",
               "foundingDate": "2023",
               "founder": {
@@ -547,6 +547,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "jobTitle": "Founder & CEO",
                 "description": "Visionary entrepreneur building India's largest coaching discovery platform",
                 "url": "https://coachingyaari.com/founder",
+                "image": "https://coachingyaari.com/c.jpeg",
                 "sameAs": [
                   "https://linkedin.com/in/pritam-kumar-coachingyaari",
                   "https://twitter.com/PritamKumarCY",
@@ -638,6 +639,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@type": "LocalBusiness",
                 "name": "Coaching Yaari - Delhi NCR",
                 "description": "Coaching center directory for Delhi NCR region - Part of Coaching Yaari network founded by Pritam Kumar",
+                "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Delhi",
@@ -653,6 +655,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@type": "LocalBusiness",
                 "name": "Coaching Yaari - Mumbai",
                 "description": "Coaching center directory for Mumbai region - Founded by Pritam Kumar",
+                "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Mumbai",
@@ -668,6 +671,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "@type": "LocalBusiness",
                 "name": "Coaching Yaari - Patna",
                 "description": "Coaching center directory for Patna, Bihar - Founded by Pritam Kumar",
+                "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Patna",
@@ -742,7 +746,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
         />
 
-        {/* ===== PERSON SCHEMA (Founder - Detailed) ===== */}
+        {/* ===== PERSON SCHEMA ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -752,34 +756,31 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "name": "Pritam Kumar",
               "alternateName": "Pritam Kumar Coaching Yaari",
               "description": "Founder & CEO of Coaching Yaari, India's largest coaching network. Entrepreneur, education technology visionary.",
-              "image": "https://coachingyaari.com/founder-pritam-kumar.jpg",
+              "image": "https://coachingyaari.com/c.jpeg",
               "url": "https://coachingyaari.com/founder",
               "sameAs": [
                 "https://linkedin.com/in/pritam-kumar-coachingyaari",
                 "https://twitter.com/PritamKumarCY",
                 "https://instagram.com/pritam.coachingyaari",
-                "https://facebook.com/pritam.coachingyaari",
-                "https://youtube.com/@pritamcoachingyaari"
+                "https://facebook.com/pritam.coachingyaari"
               ],
               "jobTitle": "Founder & Chief Executive Officer (CEO)",
               "worksFor": {
                 "@type": "Organization",
                 "name": "Coaching Yaari",
-                "url": "https://coachingyaari.com"
+                "url": "https://coachingyaari.com",
+                "logo": "https://coachingyaari.com/c.jpeg"
               },
               "birthPlace": "Bihar, India",
               "nationality": "Indian",
-              "knowsAbout": ["Education Technology", "Coaching Industry", "Digital Marketing", "Entrepreneurship", "Startup Growth"],
-              "award": "Education Innovation Award 2025",
-              "seeks": "https://coachingyaari.com/careers",
+              "knowsAbout": ["Education Technology", "Coaching Industry", "Digital Marketing", "Entrepreneurship"],
               "brand": "Coaching Yaari",
-              "follows": "https://linkedin.com/company/coaching-yaari",
               "owns": "https://coachingyaari.com"
             }),
           }}
         />
 
-        {/* ===== REVIEW SCHEMA FOR PLATFORM ===== */}
+        {/* ===== REVIEW SCHEMA ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -787,11 +788,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "@context": "https://schema.org",
               "@type": "Product",
               "name": "Coaching Yaari Platform",
-              "image": "https://coachingyaari.com/platform.jpg",
+              "image": "https://coachingyaari.com/c.jpeg",
+              "logo": "https://coachingyaari.com/c.jpeg",
               "description": "India's largest coaching discovery platform with verified reviews - Founded by Pritam Kumar",
               "brand": {
                 "@type": "Brand",
                 "name": "Coaching Yaari",
+                "logo": "https://coachingyaari.com/c.jpeg",
                 "founder": {
                   "@type": "Person",
                   "name": "Pritam Kumar"
@@ -804,49 +807,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "bestRating": "5",
                 "worstRating": "1"
               }
-            }),
-          }}
-        />
-
-        {/* ===== BREADCRUMB SCHEMA ===== */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://coachingyaari.com"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "About Founder Pritam Kumar",
-                  "item": "https://coachingyaari.com/founder"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "NEET Coaching",
-                  "item": "https://coachingyaari.com/neet-coaching"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "name": "JEE Coaching",
-                  "item": "https://coachingyaari.com/jee-coaching"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
-                  "name": "Reviews",
-                  "item": "https://coachingyaari.com/reviews"
-                }
-              ]
             }),
           }}
         />
