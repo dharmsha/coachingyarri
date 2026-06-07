@@ -60,10 +60,10 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: <Facebook size={18} />, href: "#", label: "Facebook" },
+    { icon: <Facebook size={18} />, href: "https://www.facebook.com/share/1CNNcrbZE9/", label: "Facebook" },
     { icon: <Twitter size={18} />, href: "#", label: "Twitter" },
-    { icon: <Instagram size={18} />, href: "#", label: "Instagram" },
-    { icon: <Linkedin size={18} />, href: "#", label: "LinkedIn" },
+    { icon: <Instagram size={18} />, href: "https://www.instagram.com/pritampyarecy?igsh=ajV6dWtwMjliY3l6", label: "Instagram" },
+    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/pritam-kumar-5093a83ab?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
     { icon: <Youtube size={18} />, href: "#", label: "YouTube" },
   ];
 
@@ -91,7 +91,7 @@ export default function Footer() {
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          href={`https://wa.me/91${phoneNumber}?text=Hi Coaching Yaari, I need some information.`}
+          href={`https://wa.me/91${phoneNumber}?text=Hi CoachingYaari, I need some information.`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-colors text-white"
@@ -131,7 +131,7 @@ export default function Footer() {
                     />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white tracking-tight">Coaching Yaari</h2>
+                    <h2 className="text-2xl font-bold text-white tracking-tight">CoachingYaari</h2>
                     <p className="text-blue-400 text-xs font-medium uppercase tracking-widest">India's Education Network</p>
                   </div>
                 </div>
@@ -247,15 +247,20 @@ export default function Footer() {
             </div>
           </a>
 
-          <div className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl border border-transparent sm:col-span-2 lg:col-span-1">
+          <a 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSc5pX9ZG5mmA4hkrnseLzx06UIk0gJmksVp_raS84mCGZn0AA/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 border border-transparent hover:border-purple-500/30 transition-all sm:col-span-2 lg:col-span-1"
+          >
             <div className="p-3 bg-purple-900/30 rounded-lg">
               <MapPin className="text-purple-400" size={20} />
             </div>
             <div>
-              <h4 className="font-bold text-sm">Head Office</h4>
-              <p className="text-gray-400 text-sm">New Delhi, India</p>
+              <h4 className="font-bold text-sm">Partner With Us</h4>
+              <p className="text-gray-400 text-sm">Register Your Center</p>
             </div>
-          </div>
+          </a>
         </div>
 
         <div className="border-t border-gray-800 my-8"></div>
@@ -263,7 +268,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left order-2 md:order-1">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Coaching Yaari. All rights reserved.
+              © {new Date().getFullYear()} CoachingYaari. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
               Building India's education ecosystem
@@ -277,6 +282,8 @@ export default function Footer() {
                 <motion.a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -3, backgroundColor: '#2563eb', color: '#fff' }}
                   className="p-2.5 bg-gray-800 rounded-lg text-gray-400 transition-all shadow-md"
                   aria-label={social.label}

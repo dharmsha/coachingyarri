@@ -48,7 +48,7 @@ export default function GalleryPage() {
         {/* Header Section */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Coaching <span className="text-blue-600">Yaari</span> Gallery
+            CoachingYaari Gallery
           </h1>
           <div className="w-24 h-1.5 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>

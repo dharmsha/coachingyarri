@@ -29,24 +29,24 @@ export const metadata: Metadata = {
   
   // ===== MAIN TITLE CONFIGURATION =====
   title: {
-    default: "Coaching Yaari - India's #1 Coaching & Tuition Network | Verified Reviews | Founder Pritam Kumar",
-    template: "%s | Coaching Yaari - Find Best Coaching Near You | Pritam Kumar",
+    default: "CoachingYaari - India's #1 Coaching & Tuition Network | Verified Reviews | Founder Pritam Kumar",
+    template: "%s | CoachingYaari - Find Best Coaching Near You | Pritam Kumar",
   },
   
   // ===== PRIMARY DESCRIPTION =====
-  description: "Coaching Yaari connects 50,000+ students with verified coaching centers across India. ✅ Read 10,000+ authentic reviews ✅ Compare fees & ratings ✅ Find best NEET, JEE, UPSC coaching near you. Join India's largest coaching community! Founded by Pritam Kumar, CEO.",
+  description: "CoachingYaari connects 50,000+ students with verified coaching centers across India. ✅ Read 10,000+ authentic reviews ✅ Compare fees & ratings ✅ Find best NEET, JEE, UPSC coaching near you. Join India's largest coaching community! Founded by Pritam Kumar, CEO.",
   
   // ===== COMPREHENSIVE KEYWORDS (500+ Keywords) =====
   keywords: [
     // 🏆 BRAND & PRIMARY
-    "Coaching Yaari",
+    "CoachingYaari",
     "CoachingYaari.com",
-    "Pritam Kumar Coaching Yaari",
+    "Pritam Kumar CoachingYaari",
     "Founder Pritam Kumar",
     "CEO Pritam Kumar",
     "Pritam Kumar Founder",
-    "Coaching Yaari Founder",
-    "Pritam Kumar CEO Coaching Yaari",
+    "CoachingYaari Founder",
+    "Pritam Kumar CEO CoachingYaari",
     "India Coaching Network",
     "Verified Coaching India",
     "Trusted Coaching Platform",
@@ -237,7 +237,7 @@ export const metadata: Metadata = {
     "Coaching Center Ratings",
     "Top Rated Coaching",
     "Verified Student Reviews",
-    "Coaching Yaari Reviews",
+    "CoachingYaari Reviews",
     "Pritam Kumar Reviews",
     "Founder Pritam Kumar Reviews",
     "Best Coaching Reviews",
@@ -327,14 +327,14 @@ export const metadata: Metadata = {
     "Top Rated Coaching 2026",
 
     // 📱 SOCIAL MEDIA
-    "Coaching Yaari Instagram",
+    "CoachingYaari Instagram",
     "Pritam Kumar LinkedIn",
     "Pritam Kumar Instagram",
-    "Coaching Yaari Facebook",
-    "Coaching Yaari Twitter",
-    "Coaching Yaari YouTube",
+    "CoachingYaari Facebook",
+    "CoachingYaari Twitter",
+    "CoachingYaari YouTube",
     "CEO Pritam Kumar Social",
-    "Founder Coaching Yaari Social",
+    "Founder CoachingYaari Social",
 
     // 🏷️ LONG TAIL
     "How to choose best coaching",
@@ -350,35 +350,35 @@ export const metadata: Metadata = {
   // ===== AUTHOR INFORMATION =====
   authors: [
     { 
-      name: "Pritam Kumar - Founder & CEO, Coaching Yaari", 
+      name: "Pritam Kumar - Founder & CEO, CoachingYaari", 
       url: "https://linkedin.com/in/pritam-kumar-coachingyaari" 
     },
     { 
-      name: "Coaching Yaari Team", 
+      name: "CoachingYaari Team", 
       url: "https://coachingyaari.com/about" 
     }
   ],
   creator: "Pritam Kumar (Founder & CEO)",
-  publisher: "Coaching Yaari Pvt. Ltd.",
+  publisher: "CoachingYaari Pvt. Ltd.",
 
   // ===== OPEN GRAPH (Facebook, LinkedIn, WhatsApp) =====
   openGraph: {
-    title: "Coaching Yaari - Find Verified Coaching Centers Near You | 10,000+ Reviews | Founder Pritam Kumar",
+    title: "CoachingYaari - Find Verified Coaching Centers Near You | 10,000+ Reviews | Founder Pritam Kumar",
     description: "India's #1 coaching network with 50,000+ students. ✅ Read genuine reviews ✅ Compare fees ✅ Connect with top teachers. Founded by Pritam Kumar. Join the largest coaching community today!",
     url: "https://coachingyaari.com",
-    siteName: "Coaching Yaari",
+    siteName: "CoachingYaari",
     images: [
       {
         url: "https://coachingyaari.com/c.jpeg",
         width: 1200,
         height: 630,
-        alt: "Coaching Yaari - India's Largest Coaching Network | Founder Pritam Kumar",
+        alt: "CoachingYaari - India's Largest Coaching Network | Founder Pritam Kumar",
       },
       {
         url: "https://coachingyaari.com/c.jpeg",
         width: 1200,
         height: 630,
-        alt: "Pritam Kumar - Founder & CEO Coaching Yaari",
+        alt: "Pritam Kumar - Founder & CEO CoachingYaari",
       }
     ],
     locale: "en_IN",
@@ -395,11 +395,11 @@ export const metadata: Metadata = {
     siteId: "123456789",
     creator: "@PritamKumarCY",
     creatorId: "987654321",
-    title: "Coaching Yaari - Find Best Coaching Near You | Pritam Kumar",
+    title: "CoachingYaari - Find Best Coaching Near You | Pritam Kumar",
     description: "India's #1 coaching network with 10,000+ reviews. Connect with verified coaching centers. Founded by Pritam Kumar.",
     images: {
       url: "https://coachingyaari.com/c.jpeg",
-      alt: "Coaching Yaari - Founder Pritam Kumar",
+      alt: "CoachingYaari - Founder Pritam Kumar",
     },
   },
 
@@ -440,7 +440,7 @@ export const metadata: Metadata = {
   // ===== APPLE & MOBILE =====
   appleWebApp: {
     capable: true,
-    title: "Coaching Yaari",
+    title: "CoachingYaari",
     statusBarStyle: "black-translucent",
     startupImage: [
       {
@@ -461,10 +461,10 @@ export const metadata: Metadata = {
     "geo.placename": "Noida",
     "geo.position": "28.6139;77.2090",
     "ICBM": "28.6139, 77.2090",
-    "copyright": "Coaching Yaari Pvt. Ltd.",
+    "copyright": "CoachingYaari Pvt. Ltd.",
     "copyright-year": "2026",
     "designer": "Pritam Kumar",
-    "developer": "Coaching Yaari Tech Team",
+    "developer": "CoachingYaari Tech Team",
     "language": "English, Hindi",
     "expires": "never",
     "revisit-after": "1 day",
@@ -506,18 +506,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="preconnect" href="https://images.unsplash.com" />
         
         {/* ===== DUBLIN CORE META ===== */}
-        <meta name="DC.title" content="Coaching Yaari - India's Largest Coaching Network | Founder Pritam Kumar" />
+        <meta name="DC.title" content="CoachingYaari - India's Largest Coaching Network | Founder Pritam Kumar" />
         <meta name="DC.creator" content="Pritam Kumar, Founder & CEO" />
         <meta name="DC.subject" content="Coaching, Education, Tuition, NEET, JEE, UPSC" />
         <meta name="DC.description" content="Find verified coaching centers across India. Read reviews, compare fees, connect with top teachers. Founded by Pritam Kumar." />
-        <meta name="DC.publisher" content="Coaching Yaari Pvt. Ltd." />
+        <meta name="DC.publisher" content="CoachingYaari Pvt. Ltd." />
         <meta name="DC.contributor" content="Pritam Kumar" />
         <meta name="DC.date" content={currentYear.toString()} />
         <meta name="DC.type" content="Educational Platform" />
         <meta name="DC.format" content="text/html" />
         <meta name="DC.language" content="en" />
         <meta name="DC.coverage" content="India" />
-        <meta name="DC.rights" content="Copyright Coaching Yaari" />
+        <meta name="DC.rights" content="Copyright CoachingYaari" />
       </head>
       <body className="bg-gray-50 font-sans antialiased">
         <Header />
@@ -534,7 +534,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
               "@id": "https://coachingyaari.com/#organization",
-              "name": "Coaching Yaari",
+              "name": "CoachingYaari",
               "alternateName": "CoachingYaari.com",
               "url": "https://coachingyaari.com",
               "logo": "https://coachingyaari.com/c.jpeg",
@@ -611,7 +611,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "@type": "WebSite",
               "@id": "https://coachingyaari.com/#website",
               "url": "https://coachingyaari.com",
-              "name": "Coaching Yaari",
+              "name": "CoachingYaari",
               "description": "India's Largest Coaching Network - Founded by Pritam Kumar",
               "publisher": {
                 "@id": "https://coachingyaari.com/#organization"
@@ -637,8 +637,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
-                "name": "Coaching Yaari - Delhi NCR",
-                "description": "Coaching center directory for Delhi NCR region - Part of Coaching Yaari network founded by Pritam Kumar",
+                "name": "CoachingYaari - Delhi NCR",
+                "description": "Coaching center directory for Delhi NCR region - Part of CoachingYaari network founded by Pritam Kumar",
                 "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
                   "@type": "PostalAddress",
@@ -653,7 +653,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
-                "name": "Coaching Yaari - Mumbai",
+                "name": "CoachingYaari - Mumbai",
                 "description": "Coaching center directory for Mumbai region - Founded by Pritam Kumar",
                 "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
@@ -669,7 +669,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
-                "name": "Coaching Yaari - Patna",
+                "name": "CoachingYaari - Patna",
                 "description": "Coaching center directory for Patna, Bihar - Founded by Pritam Kumar",
                 "logo": "https://coachingyaari.com/c.jpeg",
                 "address": {
@@ -695,42 +695,42 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "What is Coaching Yaari?",
+                  "name": "What is CoachingYaari?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Coaching Yaari is India's largest coaching network founded by Pritam Kumar. We help students find verified coaching centers, read authentic reviews, compare fees, and connect with expert teachers across India."
+                    "text": "CoachingYaari is India's largest coaching network founded by Pritam Kumar. We help students find verified coaching centers, read authentic reviews, compare fees, and connect with expert teachers across India."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "Who is the founder of Coaching Yaari?",
+                  "name": "Who is the founder of CoachingYaari?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Coaching Yaari was founded by Pritam Kumar, a visionary entrepreneur passionate about transforming the education sector. Pritam Kumar leads the company as CEO, focusing on building India's most trusted coaching discovery platform."
+                    "text": "CoachingYaari was founded by Pritam Kumar, a visionary entrepreneur passionate about transforming the education sector. Pritam Kumar leads the company as CEO, focusing on building India's most trusted coaching discovery platform."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How can I find coaching near me on Coaching Yaari?",
+                  "name": "How can I find coaching near me on CoachingYaari?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Simply visit Coaching Yaari website, enter your city/locality and the subject/exam you're looking for. You'll get a list of verified coaching centers near you with reviews, ratings, fees, and contact details."
+                    "text": "Simply visit CoachingYaari website, enter your city/locality and the subject/exam you're looking for. You'll get a list of verified coaching centers near you with reviews, ratings, fees, and contact details."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "Are the reviews on Coaching Yaari genuine?",
+                  "name": "Are the reviews on CoachingYaari genuine?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, all reviews on Coaching Yaari are from verified students. Founded by Pritam Kumar, we have a strict verification process to ensure authenticity. We have over 10,000+ genuine reviews from students across India."
+                    "text": "Yes, all reviews on CoachingYaari are from verified students. Founded by Pritam Kumar, we have a strict verification process to ensure authenticity. We have over 10,000+ genuine reviews from students across India."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How can I contact Coaching Yaari support?",
+                  "name": "How can I contact CoachingYaari support?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You can reach Coaching Yaari support at support@coachingyaari.com or call us at +91-9876543210. Our team, led by founder Pritam Kumar, is available 24/7 to assist you."
+                    "text": "You can reach CoachingYaari support at support@coachingyaari.com or call us at +91-9876543210. Our team, led by founder Pritam Kumar, is available 24/7 to assist you."
                   }
                 },
                 {
@@ -738,7 +738,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   "name": "Is Pritam Kumar active on social media?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Pritam Kumar (Founder & CEO of Coaching Yaari) is active on LinkedIn, Twitter, and Instagram. You can follow him @PritamKumarCY for updates about Coaching Yaari and education industry insights."
+                    "text": "Yes, Pritam Kumar (Founder & CEO of CoachingYaari) is active on LinkedIn, Twitter, and Instagram. You can follow him @PritamKumarCY for updates about CoachingYaari and education industry insights."
                   }
                 }
               ]
@@ -754,8 +754,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Pritam Kumar",
-              "alternateName": "Pritam Kumar Coaching Yaari",
-              "description": "Founder & CEO of Coaching Yaari, India's largest coaching network. Entrepreneur, education technology visionary.",
+              "alternateName": "Pritam Kumar CoachingYaari",
+              "description": "Founder & CEO of CoachingYaari, India's largest coaching network. Entrepreneur, education technology visionary.",
               "image": "https://coachingyaari.com/c.jpeg",
               "url": "https://coachingyaari.com/founder",
               "sameAs": [
@@ -767,14 +767,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "jobTitle": "Founder & Chief Executive Officer (CEO)",
               "worksFor": {
                 "@type": "Organization",
-                "name": "Coaching Yaari",
+                "name": "CoachingYaari",
                 "url": "https://coachingyaari.com",
                 "logo": "https://coachingyaari.com/c.jpeg"
               },
               "birthPlace": "Bihar, India",
               "nationality": "Indian",
               "knowsAbout": ["Education Technology", "Coaching Industry", "Digital Marketing", "Entrepreneurship"],
-              "brand": "Coaching Yaari",
+              "brand": "CoachingYaari",
               "owns": "https://coachingyaari.com"
             }),
           }}
@@ -787,13 +787,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Coaching Yaari Platform",
+              "name": "CoachingYaari Platform",
               "image": "https://coachingyaari.com/c.jpeg",
               "logo": "https://coachingyaari.com/c.jpeg",
               "description": "India's largest coaching discovery platform with verified reviews - Founded by Pritam Kumar",
               "brand": {
                 "@type": "Brand",
-                "name": "Coaching Yaari",
+                "name": "CoachingYaari",
                 "logo": "https://coachingyaari.com/c.jpeg",
                 "founder": {
                   "@type": "Person",
